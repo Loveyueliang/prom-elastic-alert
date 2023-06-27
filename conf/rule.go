@@ -37,7 +37,7 @@ func (rl *Rule) GetQueryStringDSL(from int, size int, start time.Time, end time.
         "bool":{
             "must":[
                 {
-                    "query_string": %s
+                    "query_string": "%s"
                 },
                 {
                     "range":{
@@ -73,7 +73,7 @@ func (rl *Rule) GetQueryStringCountDSL(start time.Time, end time.Time) string {
         "bool":{
             "must":[
                 {
-                    "query_string": %s
+                    "query_string": "%s"
                 },
                 {
                     "range":{
