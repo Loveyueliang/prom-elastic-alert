@@ -37,7 +37,7 @@ func (rl *Rule) GetQueryStringDSL(from int, size int, start time.Time, end time.
         "bool":{
             "must":[
                 {
-                    "query_string": "%s"
+                    "query_string": %s
                 },
                 {
                     "range":{
@@ -62,7 +62,8 @@ func (rl *Rule) GetQueryStringDSL(from int, size int, start time.Time, end time.
     "size": %d
 }
     `
-	dsl := fmt.Sprintf(q, strconv.Quote(rl.Query.QueryString), xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end), from, size)
+// 	dsl := fmt.Sprintf(q, strconv.Quote(rl.Query.QueryString), xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end), from, size)
+    dsl := fmt.Sprintf(q, rl.Query.QueryString, xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end), from, size)
 	return dsl
 }
 
@@ -73,7 +74,7 @@ func (rl *Rule) GetQueryStringCountDSL(start time.Time, end time.Time) string {
         "bool":{
             "must":[
                 {
-                    "query_string": "%s"
+                    "query_string": %s
                 },
                 {
                     "range":{
@@ -89,7 +90,8 @@ func (rl *Rule) GetQueryStringCountDSL(start time.Time, end time.Time) string {
     }
 }
     `
-	dsl := fmt.Sprintf(q, strconv.Quote(rl.Query.QueryString), xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end))
+// 	dsl := fmt.Sprintf(q, strconv.Quote(rl.Query.QueryString), xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end))
+    dsl := fmt.Sprintf(q, rl.Query.QueryString, xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end))
 	return dsl
 }
 
