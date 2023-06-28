@@ -75,7 +75,7 @@ func (rl *Rule) GetQueryStringCountDSL(start time.Time, end time.Time) string {
             "must":[
                 {
                     "query_string": %s
-                },
+                }
 //                 {
 //                     "range":{
 //                         "@timestamp":{
@@ -90,6 +90,7 @@ func (rl *Rule) GetQueryStringCountDSL(start time.Time, end time.Time) string {
     }
 }
     `
+
 // 	dsl := fmt.Sprintf(q, strconv.Quote(rl.Query.QueryString), xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end))
     dsl := fmt.Sprintf(q, rl.Query.QueryString, xtime.TimeFormatISO8601(start), xtime.TimeFormatISO8601(end))
 	return dsl
