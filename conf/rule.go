@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/dream-mo/prom-elastic-alert/utils"
 	"github.com/dream-mo/prom-elastic-alert/utils/xtime"
+    "github.com/dream-mo/prom-elastic-alert/utils/logger"
 	"strconv"
 	"strings"
 	"time"
