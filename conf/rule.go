@@ -76,15 +76,15 @@ func (rl *Rule) GetQueryStringCountDSL(start time.Time, end time.Time) string {
                 {
                     "query_string": %s
                 },
-                {
-                    "range":{
-                        "@timestamp":{
-                            "format":"strict_date_optional_time",
-                            "gte":"%s",
-                            "lte":"%s"
-                        }
-                    }
-                }
+//                 {
+//                     "range":{
+//                         "@timestamp":{
+//                             "format":"strict_date_optional_time",
+//                             "gte":"%s",
+//                             "lte":"%s"
+//                         }
+//                     }
+//                 }
             ]
         }
     }
