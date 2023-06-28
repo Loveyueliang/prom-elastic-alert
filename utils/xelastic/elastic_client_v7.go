@@ -56,8 +56,8 @@ func (ec *ElasticClientV7) CountByDSL(index string, dsl string) (int, int) {
 		DocumentType: []string{"_doc"},
 		Body:         strings.NewReader(dsl),
 	}
-	logger.Logger.Errorln(req)
-	logger.Logger.Errorln(strings.NewReader(dsl))
+	logger.Logger.Errorln(dsl)
+
 	res, e := req.Do(ctx, ec.client)
 	if e != nil {
 		t := fmt.Sprintf("%s : %s", index, e.Error())
@@ -65,6 +65,7 @@ func (ec *ElasticClientV7) CountByDSL(index string, dsl string) (int, int) {
 		return 0, res.StatusCode
 	} else {
 		m := ec.parseResponseBody(res)
+		logger.Logger.Errorln(m)
 		c, ok := m["count"]
 		if ok {
 			countFloat := c.(float64)
