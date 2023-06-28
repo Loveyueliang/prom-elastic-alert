@@ -24,7 +24,7 @@ redis:
 run_every:
   seconds: 10
 buffer_time:
-  minutes: 10
+  minutes: 30
 alert_time_limit:
   minutes: 10
 max_scrolling_count: 5
